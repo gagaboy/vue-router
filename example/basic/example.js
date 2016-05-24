@@ -1,3 +1,5 @@
+import VueRouter from '../../src'
+
 // define some components
 var Foo = Vue.extend({
   template: '<p>This is foo!</p>'
