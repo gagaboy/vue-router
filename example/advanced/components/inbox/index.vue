@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>inbox! {{message.text}}</h2>
-    <router-view></router-view>
+    <router-view v-ref:child></router-view>
   </div>
 </template>
 
@@ -47,7 +47,19 @@ module.exports = {
     deactivate ({ next }) {
       console.log('inbox deactivated.')
       next()
-    }
+    },
+
+    data ({ to, next }) {
+      // "this" is available
+      var params = {
+        id: to.params.messageId
+      }
+
+      console.log('inbox activating data...')
+
+    
+
+    },
   },
 
   data () {

@@ -24,6 +24,7 @@ module.exports = {
         id: to.params.messageId
       }
 
+      console.log('message activating data...')
       // callback based
       messagesService.get(params, (err, message) => {
         if (err) {
@@ -32,6 +33,7 @@ module.exports = {
           next({
             message: message
           })
+          console.log('message data activated.')
         }
       })
 
@@ -39,13 +41,27 @@ module.exports = {
       // return messagesService
       //   .get(params)
       //   .then(message => ({ message }))
-    }
+    },
+
+    activate () {
+      console.log('activating message...')
+      return new Promise((resolve) => {
+        console.log('message activated.')
+        resolve()
+      })
+    },
   },
 
   // default state
   data () {
     return {
       message: {}
+    }
+  },
+
+  watch: {
+    'message': function (val, oldVal) {
+      //console.log('message new: %s, old: %s', val.text, oldVal.text)
     }
   }
 }

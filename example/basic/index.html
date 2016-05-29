@@ -15,16 +15,21 @@
 
     <div id="app">
       <h1>Hello App!</h1>
+      <p>当前路径: {{$route.path}}</p>
+      <p>当前auth参数值为: {{$route.auth}}</p>
+      <p>当前路由参数: {{$route.params | json}}</p>
       <p>
         <!-- use v-link directive for navigation. -->
-        <a v-link="{ path: '/foo' }">Go to Foo</a>
-        <a v-link="{ path: '/bar' }">Go to Bar</a>
+        <a v-link="{ path: '/foo' }">Go to /foo</a>
+        <a v-link="{ path: '/foo/bar' }">Go to /foo/bar</a>
+        <a v-link="{ path: '/foo/baz' }">Go to /foo/baz</a>
+        <a v-link="{ name: 'default', params: { any: '张三' }}">User</a>
       </p>
       <!-- use router-view element as route outlet -->
       <router-view></router-view>
     </div>
 
-   <!--  <script src="example.js"></script> -->
+    <!--  <script src="example.js"></script> -->
     <!-- <script src="http://localhost:8080/webpack-dev-server.js"></script> -->
     <script src="/example.build.js"></script>
   </body>
